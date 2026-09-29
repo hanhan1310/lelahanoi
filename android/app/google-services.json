@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "543658241066",
+    "project_id": "lelahanoi-a36a9",
+    "storage_bucket": "lelahanoi-a36a9.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:543658241066:android:b08abacd5026b488d02753",
+        "android_client_info": {
+          "package_name": "com.example.lelahanoi"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNfnYyY2sN3upqZ00PRJOTugSIAmVt934"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
