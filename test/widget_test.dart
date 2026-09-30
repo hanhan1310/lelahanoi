@@ -1,15 +1,15 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:lelahanoi/main.dart';
-import 'package:lelahanoi/public/l10n/language_provider.dart';
-import 'package:lelahanoi/view/Authentication/login/login_page.dart';
+import 'package:lelahanoi/core/l10n/language_cubit.dart';
+import 'package:lelahanoi/features/auth/presentation/pages/login_page.dart';
 
 void main() {
   testWidgets('App boots to login when Firebase is not initialized in test', (WidgetTester tester) async {
     await tester.pumpWidget(
-      ChangeNotifierProvider(
-        create: (_) => LanguageProvider(),
+      BlocProvider<LanguageCubit>(
+        create: (_) => LanguageCubit(),
         child: const MyApp(),
       ),
     );

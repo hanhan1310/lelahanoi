@@ -1,11 +1,11 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:lelahanoi/model/oder_model.dart';
-import 'package:lelahanoi/utils/firestore_service.dart';
+import 'package:lelahanoi/core/models/order.dart';
+import 'package:lelahanoi/core/data/firestore_data_source.dart';
 
 void main() {
   group('FirestoreService completed order payload', () {
     test('marks completed orders as paid with cash payment method', () {
-      final payload = FirestoreService.buildCompletedOrderPayload(PaymentMethod.cash);
+    final payload = FirestoreDataSource.buildCompletedOrderPayload(PaymentMethod.cash);
 
       expect(payload['status'], 'completed');
       expect(payload['payment_status'], 'paid');
@@ -13,7 +13,7 @@ void main() {
     });
 
     test('marks completed orders as paid with transfer payment method', () {
-      final payload = FirestoreService.buildCompletedOrderPayload(PaymentMethod.transfer);
+    final payload = FirestoreDataSource.buildCompletedOrderPayload(PaymentMethod.transfer);
 
       expect(payload['status'], 'completed');
       expect(payload['payment_status'], 'paid');

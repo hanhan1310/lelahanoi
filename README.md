@@ -1,16 +1,41 @@
-# lelahanoi
+# Le La Hanoi
 
-A new Flutter project.
+Flutter app for customer ordering and manager operations.
 
-## Getting Started
+## Architecture
 
-This project is a starting point for a Flutter application.
+The app follows feature-first Clean Architecture with MVVM responsibilities:
 
-A few resources to get you started if this is your first Flutter project:
+```text
+lib/
+  core/
+    data/          Firebase data sources
+    models/        Shared domain models
+    l10n/          LanguageCubit and translations
+    theme/         App theme values
+    widgets/       Reusable UI widgets
+  features/
+    <feature>/
+      data/        Repositories and local storage
+      presentation/
+        bloc/      Cubit/ViewModel and immutable state
+        pages/     Flutter views
+```
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Views render state and dispatch user actions. Cubits own screen state and use
+repositories; repositories/data sources own Firebase and local persistence.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Current ViewModels include `AuthCubit`, `NavigationCubit`, `MenuCubit`,
+`CartCubit`, `OrderCubit`, `LoyaltyCubit`, `ProfileCubit`, and
+`ManagerSettingsCubit`.
+
+Feature files and model names use lower snake case. The old `view/`, `model/`,
+`utils/`, and `public/` buckets were removed so each feature has a clear owner.
+
+## Verification
+
+```bash
+flutter pub get
+flutter analyze
+flutter test
+```
